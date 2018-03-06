@@ -19,6 +19,9 @@ public class BeanMethod {
 		this.method = method;
 	}
 	
-	
+
+
+
+
 
 }
