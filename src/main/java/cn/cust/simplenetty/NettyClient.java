@@ -1,6 +1,9 @@
 package cn.cust.simplenetty;
 
 
+import cn.cust.netty.param.Request;
+import cn.cust.netty.user.model.User;
+import com.alibaba.fastjson.JSONObject;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.*;
@@ -11,7 +14,7 @@ import io.netty.handler.codec.Delimiters;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.util.AttributeKey;
-import sun.misc.BASE64Decoder;
+import netscape.javascript.JSObject;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -47,15 +50,22 @@ public class NettyClient {
 		try{
 			ChannelFuture future = boostrap.connect("localhost", 8080).sync();
 
-			ExecutorService executorService = Executors.newFixedThreadPool(1);
-			executorService.execute(new ClientMutiThread(future.channel()));
+//			ExecutorService executorService = Executors.newFixedThreadPool(1);
+//			executorService.execute(new ClientMutiThread(future.channel()));
 
 //			Thread client = new Thread(new ClientMutiThread(future.channel()));
 //			client.start();
 
-			String person = "张三";
+			User user = new User();
+			user.setId(1);
+			user.setAge("25");
+			user.setName("zhangbing");
 
-			future.channel().writeAndFlush(person);
+			Request request = new Request();
+			request.setCommand("saveUser");
+			request.setContent(user);
+
+			future.channel().writeAndFlush(JSONObject.toJSONString(request));
 			future.channel().writeAndFlush("\r\n");
 
 			future.channel().closeFuture().sync();

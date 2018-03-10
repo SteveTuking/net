@@ -61,7 +61,7 @@ public class SpringNettyServer implements ApplicationListener<ContextStartedEven
 
     @Override
     public int getOrder() {
-        return 0;
+        return 1;
     }
 
     @Override
