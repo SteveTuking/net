@@ -8,6 +8,10 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg)
 			throws Exception {
+		if("ping".equals(msg.toString())){
+			ctx.channel().writeAndFlush("ping\r\n");
+			return ;
+		}
 		System.out.println("客户端返回数据==="+msg.toString());
 	}
 	

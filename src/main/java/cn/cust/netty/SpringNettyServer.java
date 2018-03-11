@@ -41,7 +41,7 @@ public class SpringNettyServer implements ApplicationListener<ContextStartedEven
 
                             ch.pipeline().addLast(new SimpleHandler());
                             ch.pipeline().addLast(new StringEncoder());
-//											ch.config().setAllocator(UnpooledByteBufAllocator.DEFAULT);
+//						    ch.config().setAllocator(UnpooledByteBufAllocator.DEFAULT);
 
 
                         }
