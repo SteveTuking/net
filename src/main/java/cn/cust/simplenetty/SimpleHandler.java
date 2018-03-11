@@ -47,19 +47,19 @@ public class SimpleHandler extends ChannelInboundHandlerAdapter{
 	public void userEventTriggered(ChannelHandlerContext ctx, Object evt)
 			throws Exception {
 		
-		if(evt instanceof IdleStateEvent){
-			IdleStateEvent event = (IdleStateEvent)evt;
-			if(event.equals(IdleState.READER_IDLE)){
-				System.out.println("读空闲====");
-				ctx.close();
-			}else if(event.equals(IdleState.WRITER_IDLE)){
-				System.out.println("写空闲====");
-			}else if(event.equals(IdleState.WRITER_IDLE)){
-				System.out.println("读写空闲====");
-				ctx.channel().writeAndFlush("ping\r\n");
-			}
-			
-		}
+//		if(evt instanceof IdleStateEvent){
+//			IdleStateEvent event = (IdleStateEvent)evt;
+//			if(event.equals(IdleState.READER_IDLE)){
+//				System.out.println("读空闲====");
+//				ctx.close();
+//			}else if(event.equals(IdleState.WRITER_IDLE)){
+//				System.out.println("写空闲====");
+//			}else if(event.equals(IdleState.WRITER_IDLE)){
+//				System.out.println("读写空闲====");
+//				ctx.channel().writeAndFlush("ping\r\n");
+//			}
+//
+//		}
 		
 		super.userEventTriggered(ctx, evt);
 	}
