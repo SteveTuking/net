@@ -46,7 +46,7 @@ public class SpringNettyServer implements ApplicationListener<ContextStartedEven
 
                         }
                     });
-            ChannelFuture future = serverBootstrap.bind(8080).sync();
+            ChannelFuture future = serverBootstrap.bind(8888).sync();
             future.channel().closeFuture().sync();
 
         } catch (Exception e) {

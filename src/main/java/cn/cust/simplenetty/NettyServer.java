@@ -36,7 +36,7 @@ public class NettyServer {
                             ch.pipeline().addLast(new StringEncoder());
                         }
                     });
-            ChannelFuture future = serverBootstrap.bind(8080).sync();
+            ChannelFuture future = serverBootstrap.bind(8888).sync();
             future.channel().closeFuture().sync();
 
         } catch (Exception e) {

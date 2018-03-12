@@ -1,6 +1,7 @@
 package cn.cust.netty;
 
 import cn.cust.netty.param.RequestParam;
+import cn.cust.netty.param.Response;
 import com.alibaba.fastjson.JSONObject;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -24,10 +25,10 @@ public class SimpleHandler extends ChannelInboundHandlerAdapter{
 		RequestParam request = JSONObject.parseObject(content,RequestParam.class);
 		Object result = Media.execute(request);
 
-//		Response res = new Response();
-//		res.setId(request.getId());
-//		res.setContent(result);
-		ctx.channel().write(JSONObject.toJSONString(request));
+		Response res = new Response();
+		res.setId(request.getId());
+		res.setContent(result);
+		ctx.channel().write(JSONObject.toJSONString(res));
 		ctx.channel().writeAndFlush("\r\n");
 		
 	}
