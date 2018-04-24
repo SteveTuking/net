@@ -3,7 +3,6 @@ package cn.cust.netty.client;
 
 import cn.cust.netty.core.DefaultFuture;
 import cn.cust.netty.handler.SimpleClientHandler;
-import cn.cust.netty.param.Request;
 import cn.cust.netty.param.Response;
 import com.alibaba.fastjson.JSONObject;
 import io.netty.bootstrap.Bootstrap;
