@@ -54,7 +54,9 @@ public class NettyInital implements ApplicationListener<ContextRefreshedEvent>{
             CuratorFramework client = ZookeeperFactory.create();
             InetAddress netAddress = InetAddress.getLocalHost();
 
-            client.create().withMode(CreateMode.EPHEMERAL).forPath(Constants.SERVER_PATH+netAddress.getHostAddress());
+            int port = 8080;
+            int weight = 2;
+            client.create().withMode(CreateMode.EPHEMERAL_SEQUENTIAL).forPath(Constants.SERVER_PATH+netAddress.getHostAddress()+"#"+port+"#"+weight+"#");
 
             f.channel().closeFuture().sync();
 
