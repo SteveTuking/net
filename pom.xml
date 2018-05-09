@@ -15,7 +15,7 @@
         <module>cust-user-api</module>
         <module>cust-user-core</module>
         <module>cust-rpc-client</module>
-        <module>cust-user/cust-user-consumer</module>
+        <module>cust-user-consumer</module>
         <module>cust-user-consumer</module>
     </modules>
 
