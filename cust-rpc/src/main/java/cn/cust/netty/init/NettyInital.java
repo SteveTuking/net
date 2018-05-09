@@ -55,7 +55,7 @@ public class NettyInital implements ApplicationListener<ContextRefreshedEvent>{
             InetAddress netAddress = InetAddress.getLocalHost();
 
             int port = 8080;
-            int weight = 2;
+            int weight = 3;
             client.create().withMode(CreateMode.EPHEMERAL_SEQUENTIAL).forPath(Constants.SERVER_PATH+netAddress.getHostAddress()+"#"+port+"#"+weight+"#");
 
             f.channel().closeFuture().sync();

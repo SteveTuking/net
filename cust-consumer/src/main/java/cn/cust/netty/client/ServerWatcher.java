@@ -38,7 +38,7 @@ public class ServerWatcher implements CuratorWatcher {
 					if(weight>0){
 						for(int w=0;w<=weight;w++){
 							ChannelFuture  channelFuture = TcpClient.b.connect(str[0], Integer.valueOf(str[1]));
-							ChannelManager.add(channelFuture);;
+							ChannelManager.add(channelFuture);
 						}
 					}
 				

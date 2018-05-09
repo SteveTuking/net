@@ -56,7 +56,7 @@ public class TcpClient {
                 if(weight>0){
                     for(int w=0;w<=weight;w++){
                         ChannelManager.realServerPath.add(str[0]+"#"+str[1]);
-                        ChannelFuture  channelFuture = TcpClient.b.connect(str[0], Integer.valueOf(str[1]));
+                        ChannelFuture  channelFuture = TcpClient.b.connect(str[0], Integer.valueOf(str[1])).sync();
                         ChannelManager.add(channelFuture);
                     }
                 }
